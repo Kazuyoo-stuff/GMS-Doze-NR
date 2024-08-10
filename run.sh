@@ -6,7 +6,6 @@
 # Patches Google Play services app and certain processes/services to be able to use battery optimization
 #
 
-
 # // replace echo to ui_print
 ui_print() {
   echo "$1"
@@ -45,7 +44,7 @@ fi
 # // run component
 gms_doze() {
 # // path & array
-    GMS=$(cat /sdcard/Doze/.settings/gms.sh)
+    GMS=$(curl -s https://raw.githubusercontent.com/Kazuyoo-stuff/GMS-Doze-NR/main/services/components.sh | cat)
     GMS1="auth.managed.admin.DeviceAdminReceiver"
     GMS2="mdm.receivers.MdmDeviceAdminReceiver"
     GMS3="com.google.android.gms"
@@ -99,12 +98,15 @@ find /sdcard/Android/data/*/cache/* -delete &>/dev/null
 rm -rf /data/local/tmp/* > /dev/null 2>&1
 sleep 3
 
+# // The message that appears in the terminal
 ui_print "[ - ] Finalizing Installation"
-sync
-sleep 2
+sync # Sync to data in the rare case a device crashes
 
+# // The message that appears in the terminal
+sleep 2
 ui_print "[ - ] All Done"
 ui_print
+
 #
 # Credits
 # topjohnwu / Magisk - Magisk Module Template
