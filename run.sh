@@ -13,8 +13,12 @@ ui_print() {
 
 # // array
 API=$(getprop ro.build.version.sdk )
-tele=https://t.me/KazuyooSourcesCh
-yete=https://youtube.com/@KazuyooOpenSource
+NAME="GMS Doze | Kzyo"
+VERSION="1.3"
+ANDROIDVERSION=$(getprop ro.build.version.release)
+DATE="12 - 5 - 2024"
+DEVICES=$(getprop ro.product.board)
+MANUFACTURER=$(getprop ro.product.manufacturer)
 
 # // The message that appears in the terminal
 sleep 0.5
@@ -23,16 +27,26 @@ ui_print "▒█▀▀█ ▒█▀▄▀█ ▒█▀▀▀█ 　 ▒█▀▀
 ▒█░▄▄ ▒█▒█▒█ ░▀▀▀▄▄ 　 ▒█░▒█ ▒█░░▒█ ░▄▄▄▀▀ ▒█▀▀▀ 
 ▒█▄▄█ ▒█░░▒█ ▒█▄▄▄█ 　 ▒█▄▄▀ ▒█▄▄▄█ ▒█▄▄▄█ ▒█▄▄▄"
 ui_print
-ui_print "[ Version 1.3 ]"
+echo "     Power Optimization Mechanism\n"
 sleep 1
-ui_print 
-ui_print "[ 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 𝐌𝐞 ]"
-ui_print "-> Developer   : @KazuyooInHere"
-ui_print "-> Ch Telegram : $tele"
-ui_print "-> Ch YouTube  : $yete"
-sleep 1
-ui_print 
-ui_print "[ 𝐋𝐎𝐆 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍 ]"
+echo "***************************************"
+sleep 0.2
+echo "• Name            : ${NAME}"
+sleep 0.2
+echo "• Version         : ${VERSION}"
+sleep 0.2
+echo "• Android Version : ${ANDROIDVERSION}"
+sleep 0.2
+echo "• Build Date      : ${DATE}"
+sleep 0.2
+echo "***************************************"
+sleep 0.2
+echo "• Devices         : ${DEVICES}"
+sleep 0.2
+echo "• Manufacturer    : ${MANUFACTURER}"
+sleep 0.2
+echo "***************************************\n"
+sleep 0.2
 
 # // Check Android API
 if [ $API -ge 23 ]; then
