@@ -14,6 +14,6 @@ cmd appops set com.google.android.gms RUN_IN_BACKGROUND allow
 am set-inactive --user 0 com.google.android.gms false
 am set-standby-bucket --user 0 com.google.android.gms active
 }
-uninstall > /dev/null 2>&1
+uninstall > /dev/null 2>&1 &
 echo "[ ! ] All Tweaks Has Been Delete"
 echo
