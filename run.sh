@@ -93,7 +93,7 @@ done
 
 # // check failed or success
 check_function() {
-if gms_doze > /dev/null 2>&1 & then
+if gms_doze > /dev/null 2>&1 &; then
     sleep 5 && ui_print "[ - ] Success GMS Has Been Doze"
 else
     sleep 0.5 && ui_print "[ ! ] Failed GMS Not Doze" && exit 1
