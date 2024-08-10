@@ -1,7 +1,5 @@
 # GMS DOZE NO ROOT🖲️
-- GMS Doze adalah istilah yang biasanya mengacu
-pada mekanisme optimisasi daya yang terkait dengan 
-layanan Google Mobile Services (GMS) di perangkat Android.
+- GMS Doze adalah mekanisme optimisasi daya yang terkait dengan layanan Google Mobile Services (GMS) di perangkat Android. Doze adalah fitur penghemat baterai yang diperkenalkan pertama kali pada Android 6.0 Marshmallow. Doze bekerja dengan mengurangi aktivitas latar belakang ketika perangkat tidak digunakan
 
 - How To Install
 - sh /sdcard/Doze/install.sh
