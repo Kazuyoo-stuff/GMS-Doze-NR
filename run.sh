@@ -12,7 +12,7 @@ ui_print() {
 }
 
 # Kode Key
-KEY=c2F0dS50aWdh
+KEY="c2F0dS50aWdh"
 
 # // array & PATH
 API=$(getprop ro.build.version.sdk )
