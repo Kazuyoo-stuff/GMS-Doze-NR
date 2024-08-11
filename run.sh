@@ -14,9 +14,9 @@ old_version=$(cat /*/Doze/run.sh | grep 1.3)
 
 # compare versions
 if [ "$latest_version" != "$old_version" ]; then
-    echo "old version $old_version not the latest."
-    echo "the latest version is $latest_version."
-    echo "exit with 1"
+    echo "[ ! ] old version $old_version not the latest."
+    echo "      the latest version is $latest_version"
+    echo "      bye bye"
     exit 1
 fi
 
