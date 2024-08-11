@@ -14,7 +14,9 @@ old=$(cat /sdcard/Doze/run.sh | grep 1.2)
 old_version=$(echo "$old" | sed 's/VERSION=//')
 
 # compare versions
-if [ "$new" != "$old" ]; then
+if ([ "$new" == "$old" ]); then
+    Launch=1.3
+else
     echo "[ ! ] old version not the latest."
     echo "      the latest version is $latest_version"
     echo "      bye bye"
