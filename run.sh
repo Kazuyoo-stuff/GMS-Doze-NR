@@ -7,7 +7,7 @@
 #
 
 # new version
-latest_version=1.3
+latest_version=$(cat /*/Doze/run.sh | grep 1.3)
 
 # old version
 old_version=$(cat /*/Doze/run.sh | grep 1.3)
