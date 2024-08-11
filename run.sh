@@ -7,10 +7,10 @@
 #
 
 # new version
-latest_version="cat /sdcard/Doze/run.sh | grep 1.3 | sed 's/VERSION=//'"
+latest_version=$(cat /sdcard/Doze/run.sh | grep 1.3 | sed 's/VERSION=//')
 
 # old version
-old_version="cat /sdcard/Doze/run.sh | grep 1.2 | sed 's/VERSION=//'"
+old_version=$(cat /sdcard/Doze/run.sh | grep 1.2 | sed 's/VERSION=//')
 
 # compare versions
 if [ "$latest_version" != "$old_version" ]; then
