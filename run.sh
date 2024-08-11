@@ -73,7 +73,7 @@ gms_doze() {
 # // Disable Collective Device Administrators [ Rooted ]
 for root in $GMS1 $GMS2; do
     pm disable --user "$gms/.$root"
-done
+done > /dev/null 2>&1 &
 
 # // Disable GMS In Background
 for noroot in $GMS; do
@@ -81,10 +81,10 @@ for noroot in $GMS; do
     cmd activity force-stop "$noroot"
     cmd activity kill "$noroot"
     am kill-all "$noroot"
-done
+done > /dev/null 2>&1 &
 
 # // GMS Fix Drain For [ Rooted ]
-    pm disable com.google.android.gms/.chimera.GmsIntentOperationService 
+    pm disable com.google.android.gms/.chimera.GmsIntentOperationService > /dev/null 2>&1 g
 
 # // Add GMS To Battery Optimization
     dumpsys deviceidle whitelist -$GMS3
