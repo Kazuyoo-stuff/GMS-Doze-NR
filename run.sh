@@ -6,11 +6,12 @@
 # Patches Google Play services app and certain processes/services to be able to use battery optimization
 #
 
-# new version
-latest_version=$(cat /sdcard/Doze/run.sh | grep 1.3 || sed 's/VERSION=//')
+new=$(cat /sdcard/Doze/run.sh | grep 1.2)
+latest_version=$(echo "$new" | sed 's/VERSION=//')
 
 # old version
-old_version=$(cat /sdcard/Doze/run.sh | grep 1.2 || sed 's/VERSION=//')
+old=$(cat /sdcard/Doze/run.sh | grep 1.2)
+old_version=$(echo "$old" | sed 's/VERSION=//')
 
 # compare versions
 if [ "$latest_version" != "$old_version" ]; then
