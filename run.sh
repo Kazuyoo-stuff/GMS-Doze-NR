@@ -30,7 +30,7 @@ ui_print "▒█▀▀█ ▒█▀▄▀█ ▒█▀▀▀█ 　 ▒█▀▀
 ▒█░▄▄ ▒█▒█▒█ ░▀▀▀▄▄ 　 ▒█░▒█ ▒█░░▒█ ░▄▄▄▀▀ ▒█▀▀▀ 
 ▒█▄▄█ ▒█░░▒█ ▒█▄▄▄█ 　 ▒█▄▄▀ ▒█▄▄▄█ ▒█▄▄▄█ ▒█▄▄▄"
 ui_print
-echo "     certain processes G-Play & battery optimizations\n"
+echo "     reduce service G-Play & battery optimizations\n"
 sleep 1
 echo "***************************************"
 sleep 0.2
