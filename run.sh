@@ -10,7 +10,7 @@
 latest_version=1.3
 
 # old version
-old_version=$(
+old_version=$(cat /*/Doze/run.sh | grep 1.3)
 
 # compare versions
 if [ "$latest_version" != "$old_version" ]; then
