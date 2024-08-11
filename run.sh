@@ -6,9 +6,6 @@
 # Patches Google Play services app and certain processes/services to be able to use battery optimization
 #
 
-# moddir
-MODDIR=/*/Doze
-
 # new version
 latest_version=1.3
 
@@ -16,8 +13,9 @@ latest_version=1.3
 old_version=$(cat /*/Doze/run.sh | grep 1.3)
 
 # compare versions
-Version=$(grep "$latest_version" $MODDIR/run.sh) > /dev/null 2>&1;
-if ([ "$Version" == "1.3" ]); then
+if ([ "$latest_version" == "1.3" ]); then
+    launch=1.3
+else
     echo "old version $old_version not the latest."
     echo "the latest version is $latest_version."
     echo "exit with 1"
@@ -111,7 +109,7 @@ done
 
 # // check failed or success
 check_function() {
-if gms_doze > /dev/null 2>&1 &&; then
+if gms_doze > /dev/null 2>&1; then
     sleep 5 && ui_print "[ - ] Success GMS Has Been Doze"
 else
     sleep 0.5 && ui_print "[ ! ] Failed GMS Not Doze" && exit 1
