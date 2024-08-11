@@ -123,7 +123,7 @@ sync # Sync to data in the rare case a device crashes
 sleep 2
 ui_print "[ - ] All Done"
 ui_print
-
+exit 1
 #
 # Credits
 # topjohnwu / Magisk - Magisk Module Template
