@@ -6,23 +6,12 @@
 # Patches Google Play services app and certain processes/services to be able to use battery optimization
 #
 
-version=$(cat /sdcard/Doze/run.sh | grep 1.3)
-# compare versions
-if ([ "$version" == "VERSION=1.3" ]); then
-    Launch=1.3
-else
-    echo "[ ! ] old version not the latest."
-    echo "      the latest version is $latest_version"
-    echo "      bye bye"
-    exit 1
-fi
-
 # // replace echo to ui_print
 ui_print() {
   echo "$1"
 }
 
-# // array
+# // array & PATH
 API=$(getprop ro.build.version.sdk )
 NAME="GMS Doze | Kzyo"
 VERSION="1.3"
@@ -30,6 +19,17 @@ ANDROIDVERSION=$(getprop ro.build.version.release)
 DATE="12 - 5 - 2024"
 DEVICES=$(getprop ro.product.board)
 MANUFACTURER=$(getprop ro.product.manufacturer)
+version=$(cat /sdcard/Doze/run.sh | grep 1.3)
+
+# compare versions
+if ([ "$version" == "VERSION=1.3" ]); then
+    Launch=1.3
+else
+    echo "[ ! ] old version not the latest."
+    echo "      the latest version is $VERSION"
+    echo "      bye bye"
+    exit 1
+fi
 
 # // The message that appears in the terminal
 sleep 0.5
