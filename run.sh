@@ -26,7 +26,7 @@ if ([ "$version" == "VERSION=1.3" ]); then
     Launch=1.3
 else
     echo "[ ! ] old version not the latest."
-    echo "      the latest version is 1.3"
+    echo "      the latest version is $VERSION"
     echo "      bye bye"
     exit 1
 fi
