@@ -23,10 +23,10 @@ version=$(cat /sdcard/Doze/run.sh | grep 1.3)
 
 # compare versions
 if ([ "$version" == "VERSION=1.3" ]); then
-    Launch=1.3
+    Launch="1.3"
 else
     echo "[ ! ] old version not the latest."
-    echo "      the latest version is $VERSION"
+    echo "      the latest version is $Launch"
     echo "      bye bye"
     exit 1
 fi
