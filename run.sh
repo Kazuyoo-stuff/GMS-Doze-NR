@@ -6,6 +6,20 @@
 # Patches Google Play services app and certain processes/services to be able to use battery optimization
 #
 
+# new version
+latest_version=1.3
+
+# old version
+old_version=$(
+
+# compare versions
+if [ "$latest_version" != "$old_version" ]; then
+    echo "old version $old_version not the latest."
+    echo "the latest version is $latest_version."
+    echo "exit with 1"
+    exit 1
+fi
+
 # // replace echo to ui_print
 ui_print() {
   echo "$1"
