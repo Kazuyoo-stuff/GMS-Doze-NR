@@ -6,15 +6,11 @@
 # Patches Google Play services app and certain processes/services to be able to use battery optimization
 #
 
-if [ $(id -u) -eq 0 ]; then
-_root=true
-_shell=false
-elif [ $(id -u) -eq 2000 ]; then
-_shell=true
-_root=false
-else
-exit 1
-fi
+case "$(id -u)" in
+0) _root=true; _shell=false ;;
+2000) _shell=true; _root=false ;;
+*) exit 1 ;;
+esac
 
 # // replace echo to ui_print
 ui_print() {
