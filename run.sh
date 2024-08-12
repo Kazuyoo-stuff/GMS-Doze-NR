@@ -6,6 +6,16 @@
 # Patches Google Play services app and certain processes/services to be able to use battery optimization
 #
 
+if [ $(id -u) -eq 0 ]; then
+_root=true
+_shell=false
+elif [ $(id -u) -eq 2000 ]; then
+_shell=true
+_root=false
+else
+exit 1
+fi
+
 # // replace echo to ui_print
 ui_print() {
   echo "$1"
@@ -61,7 +71,7 @@ fi
 # // run component
 gms_doze() {
 # // path & array
-    GMS=$(curl -s https://raw.githubusercontent.com/Kazuyoo-stuff/GMS-Doze-NR/main/services/components.sh | cat)
+    GMS=$($CURL -s https://raw.githubusercontent.com/Kazuyoo-stuff/GMS-Doze-NR/main/services/components.sh | cat)
     GMS1="auth.managed.admin.DeviceAdminReceiver"
     GMS2="mdm.receivers.MdmDeviceAdminReceiver"
     GMS3="com.google.android.gms"
@@ -71,20 +81,26 @@ gms_doze() {
     inactive=true
 
 # // Disable Collective Device Administrators [ Rooted ]
+if $_root; then
 for root in $GMS1 $GMS2; do
     pm disable --user "$gms/.$root"
 done > /dev/null 2>&1 &
+fi
 
 # // Disable GMS In Background
+if $_root || $_shell; then
 for noroot in $GMS; do
     am force-stop "$noroot"
     cmd activity force-stop "$noroot"
     cmd activity kill "$noroot"
     am kill-all "$noroot"
 done > /dev/null 2>&1 &
+fi
 
 # // GMS Fix Drain For [ Rooted ]
+if $_root; then
     pm disable com.google.android.gms/.chimera.GmsIntentOperationService > /dev/null 2>&1 g
+fi
 
 # // Add GMS To Battery Optimization
     dumpsys deviceidle whitelist -$GMS3
@@ -106,7 +122,6 @@ fi
 # // call function
 check_function
 sleep 1
-
 
 # // Clean Up 
 # // Don't change the code below if you don't want all your data to be deleted
